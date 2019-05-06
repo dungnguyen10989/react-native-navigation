@@ -68,12 +68,13 @@ Navigation.mergeOptions(this.props.componentId, {
     backgroundColor: 'white',
     orientation: ['portrait', 'landscape'] // An array of supported orientations
   },
-  modalPresentationStyle: 'overCurrentContext', // Supported styles are: 'formSheet', 'pageSheet', 'overFullScreen', 'overCurrentContext', 'currentContext', 'popOver', 'fullScreen' and 'none'. On Android, only overCurrentContext and none are supported.
+  modalPresentationStyle: 'overCurrentContext', // Supported styles are: 'formSheet', 'pageSheet', 'overFullScreen', 'overCurrentContext', 'currentContext', 'popover', 'fullScreen' and 'none'. On Android, only overCurrentContext and none are supported.
   topBar: {
     visible: true,
     animate: false, // Controls whether TopBar visibility changes should be animated
     hideOnScroll: true,
-    buttonColor: 'black',
+    leftButtonColor: 'black',
+    rightButtonColor: 'black',
     drawBehind: false,
     testID: 'topBar',
     title: {
@@ -141,7 +142,8 @@ Navigation.mergeOptions(this.props.componentId, {
     }
   },
   overlay: {
-    interceptTouchOutside: true
+    interceptTouchOutside: true,
+    handleKeyboardEvents: true
   },
   preview: {
     reactTag: 0, // result from findNodeHandle(ref)
@@ -286,12 +288,12 @@ If you'd like to use a custom font, you'll first have to edit your project.
 
 ## Custom tab icons
 
-* Android - add cooresponding resoltion icons into folders in android/app/src/main/res.
-For example, icon_name.png in each drawable-x folder.
-* iOS - drag and drop to Images.xcassets in Xcode.
-For example, image set icon_name in Images.xcassets with x1, x2, x3.
+* Android - add corresponding resolution icons into folders in `android/app/src/main/res`.
+For example, `icon_name.png` in each drawable-x folder.
+* iOS - drag and drop to `Images.xcassets` in Xcode.
+For example, image set `icon_name` in `Images.xcassets` with x1, x2, x3.
 
-Then, the tab icon can be defined by following syntax:
+Then, the tab icon can be defined with the following syntax:
 
 ```js
 bottomTab: {
